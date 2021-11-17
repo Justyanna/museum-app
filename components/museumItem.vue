@@ -22,7 +22,6 @@
 </template>
 
 <script>
-
 import DepartmentItem from "./departmetItem.vue";
 export default {
   
@@ -35,14 +34,14 @@ export default {
    methods: {
     goToMuseumView: function(departmets, museumName) {
         this.navigation.navigate("Museum", {departmets:departmets, museumName:museumName});
+
     },
   },
 };
 </script>
 
-
 <style>
-  .card {
+    .card {
     background-color: rgb(255, 255, 255);
     padding: 8px;
     border-bottom-width: 1;
@@ -63,4 +62,5 @@ export default {
   .text-address{
     font-size: 16;
   }
+
 </style>

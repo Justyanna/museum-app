@@ -19,6 +19,7 @@
     "react-native-reanimated": "^2.2.4",
     "react-native-screens": "~3.8.0",
     "react-native-web": "~0.17.5",
+
     "vue-native-core": "0.3.1",
     "vue-native-helper": "^0.3.1",
     "vue-native-router": "^0.2.1"

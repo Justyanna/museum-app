@@ -1160,6 +1160,7 @@
     base64-js "^1.2.3"
     xmlbuilder "^14.0.0"
 
+68ffe70a539b902e41c179df379ba40886
 "@expo/vector-icons@^12.0.4", "@expo/vector-icons@^12.0.5":
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-12.0.5.tgz#bc508ad05fb7e9a3e008704977cfec6c18aa7728"
