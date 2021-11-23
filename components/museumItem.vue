@@ -1,7 +1,8 @@
 <template>
   <view class="card">
-      <text class="text-title">{{museum.name}}</text>
-      <!-- <button class="button" @click.native="goToMuseumView(museum.departments, museum.name)" title="Press Me" /> -->
+      <text class="text-title" :on-press="()=>goToMuseumViewFromItem(museum.departments, museum.name)" >{{museum.name}}</text>
+      <!-- <button class="button" :on-press="goToMuseumView" title="Press Me" /> -->
+      
       <view class="card-content">
           <view class="card-address">
             <text class="text-address">{{museum.localisation.street }} - {{museum.localisation.city }}, {{museum.localisation.country}}</text>
@@ -16,12 +17,16 @@
           :key="d.name"
           :department="d"
         />
+        
       </scroll-view >
+      
     
   </view>
 </template>
 
 <script>
+
+
 import DepartmentItem from "./departmetItem.vue";
 export default {
   
@@ -30,10 +35,20 @@ export default {
     museum: {
       Type: Object
     },
+    // navigation: {
+    //   type: Object
+    // },
+    function: {
+      type: Function
+    },
   },
    methods: {
-    goToMuseumView: function(departmets, museumName) {
-        this.navigation.navigate("Museum", {departmets:departmets, museumName:museumName});
+    goToMuseumViewFromItem: function(departmets, museumName) {
+      //alert('siema');
+      //console.log(departmets);
+      //console.log(museumName);
+        //this.navigation.navigate("Museum");//, {departmets:departmets, museumName:museumName});
+        this.function(departmets,museumName);
 
     },
   },
@@ -55,6 +70,7 @@ export default {
   .text-title{
     font-size: 18;
     color: rgb(34, 0, 255);
+    
   }
   .card-content{
     height: 40;

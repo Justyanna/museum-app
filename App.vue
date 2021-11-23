@@ -10,11 +10,14 @@ import {
 
 import MainScreen from "./screens/main.vue";
 import MuseumSceen from "./screens/museum.vue";
+import Test from "./screens/template_testowy.vue";
 
 const StackNavigator = createStackNavigator(
   {
     Main: MainScreen,
-    Museum: MuseumSceen
+    Museum: MuseumSceen,
+    Test: Test
+
   },
   {
     initialRouteName: 'Main',

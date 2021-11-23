@@ -1,11 +1,13 @@
 <template>
 <view class="container">
+  <button class="button" :on-press="goToMuseumView" title="Press Me" />
   <text class="text-welcome-banner">Welcome in Museums App</text>
   <scroll-view :style="{widht:'100%'}">
     <museum-item
       v-for="m in museums"
       :key="m.name"
       :museum="m"
+      :function="goToMuseumView"
     />
     </scroll-view >
   </view>
@@ -19,12 +21,27 @@ import Vue from "vue-native-core";
 Vue.component("ionicons", Ionicons);
 
 export default {
+  props: {
+    navigation: {
+      type: Object
+    },
+  },
   components: { MuseumItem, Ionicons },
+  methods: {
+    goToMuseumView: function(departmets, museumName) {
+      //alert('siema');
+      //console.log('patyt swietnie plywa');
+      console.log(departmets);
+      console.log(museumName);
+        this.navigation.navigate("Museum", {departmets:departmets, museumName:museumName});
+
+    },
+  },
   data() {
     return {
       museums: json,
     }
-  }
+  },
 };
 </script>
 
