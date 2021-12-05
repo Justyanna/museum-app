@@ -3,7 +3,7 @@
     <view>
       <text>{{ exhibit.title }}</text>
       <image
-        v-if="uri != null ? uri : exhibit.photo"
+        v-if="uri"
         :style="{ width: 100, height: 100 }"
         :source="{ uri: exhibit.photo }"
       />
@@ -39,7 +39,9 @@ export default {
       immediate: true,
       handler() {
         this.exhibitData = this.exhibit;
+        console.log(this.exhibitData);
         load(this.exhibitData).then((res) => {
+          console.log(res);
           this.uri = res;
         });
       },

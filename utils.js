@@ -25,7 +25,6 @@ const load = (exhibit) => {
   let filename = splited[splited.length - 1]
     .replace("Plik:", "")
     .replace("File:", "");
-
   return getUri(filename);
 };
 

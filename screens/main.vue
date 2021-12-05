@@ -13,11 +13,48 @@
 </template>
 
 <script>
-import json from "../data.json";
+import * as FileSystem from "expo-file-system";
+const { StorageAccessFramework } = FileSystem;
 import MuseumItem from "../components/museumItem.vue";
 import { Ionicons } from "@expo/vector-icons";
 import Vue from "vue-native-core";
 Vue.component("ionicons", Ionicons);
+import axios from "axios";
+let json;
+const dataBaseUri = FileSystem.documentDirectory + "data1.json";
+
+const getDatabase = async (data) => {
+  const dirInfo = await FileSystem.getInfoAsync(dataBaseUri);
+
+  if (!dirInfo) {
+    await StorageAccessFramework.createFileAsync(
+      FileSystem.documentDirectory,
+      "data1.json",
+      "application/json"
+    );
+  }
+  console.log(dirInfo);
+
+  FileSystem.writeAsStringAsync(dataBaseUri, JSON.stringify(data), {})
+    .then((resp) => console.log("result ", resp))
+    .catch((error) => console.log(error));
+};
+
+const cacheData = (data) => {
+  getDatabase(data);
+};
+
+const loadData = async () => {
+  let file;
+  const info = await FileSystem.getInfoAsync(dataBaseUri);
+
+  if (info.exists && !info.isDirectory) {
+    file = await FileSystem.readAsStringAsync(
+      FileSystem.documentDirectory + "data1.json"
+    ).catch((error) => console.log(error));
+  }
+  return file;
+};
 
 export default {
   props: {
@@ -26,11 +63,23 @@ export default {
     },
   },
   components: { MuseumItem, Ionicons },
-
   data() {
     return {
       museums: json,
     };
+  },
+  mounted() {
+    axios
+      .get("https://GreedySeashellPup.justyanna.repl.co")
+      .then((response) => {
+        this.museums = response.data;
+        cacheData(response.data);
+      })
+      .catch((error) => {
+        loadData().then((file) => {
+          this.museums = JSON.parse(file);
+        });
+      });
   },
 };
 </script>

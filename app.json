@@ -13,9 +13,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["assets/images/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -23,20 +21,15 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.annakuczynska.museumapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "packagerOpts": {
       "config": "metro.config.js",
-      "sourceExts": [
-        "js",
-        "json",
-        "ts",
-        "tsx",
-        "vue"
-      ]
+      "sourceExts": ["js", "json", "ts", "tsx", "vue"]
     }
   }
 }
