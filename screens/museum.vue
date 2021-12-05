@@ -2,7 +2,7 @@
   <view class="container">
     <text class="text-welcome-banner">{{
       this.props.navigation.getParam("museumName")
-    }}</text>
+    }}{{" "}}<ionicons class="icon" name="color-palette-outline"/></text>
 
     <scroll-view :style="{ widht: '100%' }">
       <department-item
@@ -28,12 +28,18 @@ export default {
 
 <style>
 .container {
-  background-color: rgb(255, 255, 255);
-  margin-top: 50;
-  margin-left: 4;
+  background-color: #c4721c;
+  margin: top -50px;
 }
 .text-welcome-banner {
+  background-color: #3a50d9;
+  color: #e0eff2;
+  font-family:monospace;
   font-size: 18;
-  color: rgb(34, 0, 255);
+  text-align: center;
+  padding:8px
+}
+.icon{
+  font-size: 20px;
 }
 </style>

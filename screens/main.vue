@@ -16,9 +16,6 @@
 import * as FileSystem from "expo-file-system";
 const { StorageAccessFramework } = FileSystem;
 import MuseumItem from "../components/museumItem.vue";
-import { Ionicons } from "@expo/vector-icons";
-import Vue from "vue-native-core";
-Vue.component("ionicons", Ionicons);
 import axios from "axios";
 let json;
 const dataBaseUri = FileSystem.documentDirectory + "data1.json";
@@ -62,7 +59,7 @@ export default {
       type: Object,
     },
   },
-  components: { MuseumItem, Ionicons },
+  components: { MuseumItem},
   data() {
     return {
       museums: json,
@@ -86,13 +83,18 @@ export default {
 
 <style>
 .text-welcome-banner {
-  font-size: 29;
-  color: rgb(34, 0, 255);
+  background-color: #3a50d9;
+  color: #e0eff2;
+  font-family:monospace;
+  font-size: 28px;
+  padding: 20px;
+  margin-left: -5px;
+  text-align: center;
 }
 
 .container {
-  background-color: rgb(255, 255, 255);
-  margin-top: 50;
-  margin-left: 4;
+  background-color: #fbf1e6;
+  font-family:monospace;
+  margin-bottom: 80px;
 }
 </style>
